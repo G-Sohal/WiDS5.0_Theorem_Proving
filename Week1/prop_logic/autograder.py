@@ -175,7 +175,7 @@ def test_to_cnf(test_cases: List[Dict]) -> Tuple[int, List[Dict]]:
         try:
             # Parse input expression
             expr = parse_expression(test_case['input'])
-            
+            print(f"\n[DEBUG] Test {test_case['id']} Input: {expr}")
             # Call to_cnf
             cnf_output = to_cnf(expr)
             
@@ -246,7 +246,7 @@ def test_dpll(test_cases: List[Dict]) -> Tuple[int, List[Dict]]:
         except Exception as e:
             result['error'] = f"{type(e).__name__}: {str(e)}"
             # Uncomment for debugging:
-            # traceback.print_exc()
+            traceback.print_exc()
         
         results.append(result)
     
