@@ -1,43 +1,32 @@
 class Expr:
     pass 
 
-
 class Var(Expr):
     def __init__(self, name):
         self.name = name
         self.type = "var"
-    def __repr__(self):
-        return self.name
     
 class Not(Expr):
     def __init__(self, expr):
         self.expr = expr
         self.type = "not"
-    def __repr__(self):
-        return f"~{self.expr}"
 
 class And(Expr):
     def __init__(self, left, right):
         self.left = left
         self.right = right
         self.type = "and"
-    def __repr__(self):
-        return f"{self.left} & {self.right}"
 
 class Or(Expr):
     def __init__(self, left, right):
         self.left = left
         self.right = right
         self.type = "or"
-    def __repr__(self):
-        return  f"{self.left} | {self.right}"
 class Implies(Expr):
     def __init__(self, left, right):
         self.left = left
         self.right = right
         self.type = "implies"
-    def __repr__(self):
-        return f"{self.left} -> {self.right}"
 
 def del_implies(expr):
     if expr.type == "var":
